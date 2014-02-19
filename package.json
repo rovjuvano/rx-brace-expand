@@ -1,0 +1,18 @@
+{
+  "name": "rxjs-brace-expand",
+  "version": "0.0.1-SNAPSHOT",
+  "description": "Expand string with braces like shell",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/**Spec.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "~1.17.1",
+    "should": "~3.1.2"
+  },
+  "dependencies": {
+    "rx": "~2.2.13"
+  }
+}
