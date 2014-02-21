@@ -7,12 +7,14 @@ module.exports = function(string) {
 		var suffix = m[3];
 		var obs = new Rx.Subject();
 		Rx.Scheduler.timeout.schedule(function() {
-			if (parts.length === 1 && (m = /^(-?\d+)\.\.(-?\d+)$/.exec(parts[0]))) {
+			if (parts.length === 1 && (m = /^(-?\d+)\.\.(-?\d+)(?:\.\.(\d+))?$/.exec(parts[0]))) {
 				var i = +m[1];
 				var j = +m[2];
+				var step = +m[3] || 1;
 				if (i < j) {
 					while (i<=j) {
-						obs.onNext(prefix + i++ + suffix);
+						obs.onNext(prefix + i + suffix);
+						i += step;
 					}
 				}
 				else  {

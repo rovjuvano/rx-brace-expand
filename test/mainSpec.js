@@ -31,5 +31,6 @@ describe('rxjs-brace-expand', function() {
 		it('expands for each integer in range', 'A{1..3}Z', ['A1Z', 'A2Z', 'A3Z']);
 		it('expands descending', 'A{3..1}Z', ['A3Z','A2Z','A1Z']);
 		it('expands negative integers', 'A{-3..-1}Z', ['A-3Z','A-2Z','A-1Z']);
+		it('expands ascending by step', 'A{1..5..2}Z', ['A1Z','A3Z','A5Z']);
 	});
 })
