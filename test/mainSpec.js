@@ -29,5 +29,6 @@ describe('rxjs-brace-expand', function() {
 
 	describe('{..}', function() {
 		it('expands for each integer in range', 'A{1..3}Z', ['A1Z', 'A2Z', 'A3Z']);
+		it('expands descending', 'A{3..1}Z', ['A3Z','A2Z','A1Z']);
 	});
 })

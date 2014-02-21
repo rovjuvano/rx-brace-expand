@@ -8,10 +8,17 @@ module.exports = function(string) {
 		var obs = new Rx.Subject();
 		Rx.Scheduler.timeout.schedule(function() {
 			if (parts.length === 1 && (m = /^(\d+)\.\.(\d+)$/.exec(parts[0]))) {
-				var i = m[1];
-				var j = m[2];
-				for (; i<=j; i++) {
-					obs.onNext(prefix + i + suffix);
+				var i = +m[1];
+				var j = +m[2];
+				if (i < j) {
+					while (i<=j) {
+						obs.onNext(prefix + i++ + suffix);
+					}
+				}
+				else  {
+					while (i>=j) {
+						obs.onNext(prefix + i-- + suffix);
+					}
 				}
 			}
 			else {
