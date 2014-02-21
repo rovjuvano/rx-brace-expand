@@ -19,7 +19,8 @@ module.exports = function(string) {
 				}
 				else  {
 					while (i>=j) {
-						obs.onNext(prefix + i-- + suffix);
+						obs.onNext(prefix + i + suffix);
+						i -= step;
 					}
 				}
 			}
