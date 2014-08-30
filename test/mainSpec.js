@@ -35,5 +35,6 @@ describe('rxjs-brace-expand', function() {
 		it('expands descending by step', 'A{5..1..2}Z', ['A5Z','A3Z','A1Z']);
 		it('ignores negative in step (positive)', 'A{1..5..-2}Z', ['A1Z','A3Z','A5Z']);
 		it('ignores negative in step (negative)', 'A{5..1..-2}Z', ['A5Z','A3Z','A1Z']);
+		it('pads number (positive)', 'A{01..1111..555}Z', ['A0001Z', 'A0556Z', 'A1111Z']);
 	});
 })
